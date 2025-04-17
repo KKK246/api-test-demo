@@ -1,7 +1,5 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Apr 16 16:56:09 2025
+import re
 
-@author: edwardlai
-"""
-
+def is_valid_email(email):
+    pattern = r"^[\w\.-]+@[\w\.-]+\.\w+$"
+    return re.match(pattern, email) is not None

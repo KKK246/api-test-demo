@@ -1,7 +1,10 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Apr 16 16:51:22 2025
+import requests
+import unittest
 
-@author: edwardlai
-"""
+class TestPostsAPI(unittest.TestCase):
+    def test_get_posts(self):
+        url = 'https://jsonplaceholder.typicode.com/posts'
+        response = requests.get(url)
+        self.assertEqual(response.status_code, 200)
+        self.assertTrue(len(response.json()) > 0)
 

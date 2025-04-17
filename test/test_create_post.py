@@ -1,7 +1,14 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Apr 16 16:55:36 2025
+import requests
+import unittest
 
-@author: edwardlai
-"""
-
+class TestCreatePostAPI(unittest.TestCase):
+    def test_create_post(self):
+        url = 'https://jsonplaceholder.typicode.com/posts'
+        data = {
+            "title": "Test Post",
+            "body": "This is a test post.",
+            "userId": 1
+        }
+        response = requests.post(url, json=data)
+        self.assertEqual(response.status_code, 201)
+        self.assertEqual(response.json()["title"], data["title"])
